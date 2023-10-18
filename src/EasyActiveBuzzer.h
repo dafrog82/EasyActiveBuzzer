@@ -20,12 +20,17 @@ Github:		https://github.com/evert-arias/EasyActiveBuzzer
 #include "Config.h"
 
 #ifdef ESP8266
+#ifndef min
 #define min _min
 #define max _max
 #endif
+#endif
 #ifdef ESP32
+
+#ifndef min
 #define min _min
 #define max _max
+#endif
 #endif
 
 class EasyActiveBuzzerClass
