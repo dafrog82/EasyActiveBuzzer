@@ -32,26 +32,26 @@ void EasyActiveBuzzerClass::beep(unsigned int beeps, void (*finishedCallbackFunc
 /* Beep sequence at a given frequency. */
 void EasyActiveBuzzerClass::beep(unsigned int const onDuration, unsigned int const offDuration, byte const beeps, unsigned int const pauseDuration, unsigned int const sequences)
 {
-	mOnDuration = onDuration ? max(MINIMUM_INTERVAL, onDuration) : 0;
-	mOffDuration = offDuration ? max(MINIMUM_INTERVAL, offDuration) : 0;
+	mOnDuration = onDuration ? _max(MINIMUM_INTERVAL, onDuration) : 0;
+	mOffDuration = offDuration ? _max(MINIMUM_INTERVAL, offDuration) : 0;
 	mBeeps = beeps;
-	mPauseDuration = pauseDuration ? max(MINIMUM_INTERVAL, pauseDuration) : 0;
+	mPauseDuration = pauseDuration ? _max(MINIMUM_INTERVAL, pauseDuration) : 0;
 	mSequences = sequences;
 	mFinishedCallbackFunction = NULL;
-	mStartTime = max(millis(), 1);
+	mStartTime = _max(millis(), 1);
 	mLastRunTime = 0;
 	update();
 }
 /* Beep sequence at a given frequency, with callback functionality. */
 void EasyActiveBuzzerClass::beep(unsigned int const onDuration, unsigned int const offDuration, byte const beeps, unsigned int const pauseDuration, unsigned int const sequences, void (*finishedCallbackFunction)())
 {
-	mOnDuration = onDuration ? max(MINIMUM_INTERVAL, onDuration) : 0;
-	mOffDuration = offDuration ? max(MINIMUM_INTERVAL, offDuration) : 0;
+	mOnDuration = onDuration ? _max(MINIMUM_INTERVAL, onDuration) : 0;
+	mOffDuration = offDuration ? _max(MINIMUM_INTERVAL, offDuration) : 0;
 	mBeeps = beeps;
-	mPauseDuration = pauseDuration ? max(MINIMUM_INTERVAL, pauseDuration) : 0;
+	mPauseDuration = pauseDuration ? _max(MINIMUM_INTERVAL, pauseDuration) : 0;
 	mSequences = sequences;
 	mFinishedCallbackFunction = finishedCallbackFunction;
-	mStartTime = max(millis(), 1);
+	mStartTime = _max(millis(), 1);
 	mLastRunTime = 0;
 	update();
 }
